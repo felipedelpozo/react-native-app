@@ -1,12 +1,23 @@
 import React from 'react';
+import {StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native';
-import {Appbar, Avatar} from 'react-native-paper';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {Appbar, Avatar, useTheme} from 'react-native-paper';
 
 import {useApp} from '~/store';
 
 const Header = ({scene, previous, navigation}) => {
   const {user} = useApp();
+  const theme = useTheme();
+
+  const style = new StyleSheet.create({
+    iconLogo: {},
+    content: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: theme.colors.primary,
+    },
+  });
+
   const {options} = scene.descriptor;
   const title =
     options.headerTitle !== undefined
@@ -35,11 +46,7 @@ const Header = ({scene, previous, navigation}) => {
           />
         </TouchableOpacity>
       )}
-      <Appbar.Content
-        title={
-          previous ? title : <MaterialCommunityIcons name="twitter" size={40} />
-        }
-      />
+      <Appbar.Content title={title} style={style.content} />
     </Appbar.Header>
   );
 };
