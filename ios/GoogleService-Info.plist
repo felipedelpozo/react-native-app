@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>122965851435-np7hb5aqn02ntgh28p2idb711cl3td3l.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.122965851435-np7hb5aqn02ntgh28p2idb711cl3td3l</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>122965851435-0c7cq1fpiic9q4o4nokk8h1u70c63e4q.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBVN-tMyi-c2fRuqj5HOjvKQN3ldgda1ds</string>
+	<key>GCM_SENDER_ID</key>
+	<string>122965851435</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.felipedelpozo.appnative</string>
+	<key>PROJECT_ID</key>
+	<string>appnative-84ef1</string>
+	<key>STORAGE_BUCKET</key>
+	<string>appnative-84ef1.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:122965851435:ios:c285015ab6c69d5f50196e</string>
+	<key>DATABASE_URL</key>
+	<string>https://appnative-84ef1.firebaseio.com</string>
+</dict>
+</plist>
