@@ -1,15 +1,15 @@
 import React from 'react';
-import {Provider as PaperProvider} from 'react-native-paper';
+import {NavigationContainer} from '@react-navigation/native';
 
 import Provider from '~/store';
-import AppNavigator from '~/AppNavigator';
+import Main from '~/Main';
 
-const App: () => React$Node = () => {
+const App = () => {
   return (
     <Provider>
-      <PaperProvider>
-        <AppNavigator />
-      </PaperProvider>
+      <NavigationContainer>
+        <Main />
+      </NavigationContainer>
     </Provider>
   );
 };
