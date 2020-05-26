@@ -1,7 +1,7 @@
 import React from 'react';
 import {Provider as PaperProvider} from 'react-native-paper';
 
-import Provider from '~/stores';
+import Provider from '~/store';
 import AppNavigator from '~/AppNavigator';
 
 const App: () => React$Node = () => {
