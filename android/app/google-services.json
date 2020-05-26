@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "122965851435",
+    "firebase_url": "https://appnative-84ef1.firebaseio.com",
+    "project_id": "appnative-84ef1",
+    "storage_bucket": "appnative-84ef1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122965851435:android:5c4b837b33e360d850196e",
+        "android_client_info": {
+          "package_name": "com.felipedelpozo.appnative"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122965851435-0c7cq1fpiic9q4o4nokk8h1u70c63e4q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.felipedelpozo.appnative",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "122965851435-ngch3ndo2cl7audtlip8dj1thu347l4g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-oujf2lRkZ1Bg2BP80yfgCQT8feayESM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122965851435-ngch3ndo2cl7audtlip8dj1thu347l4g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
