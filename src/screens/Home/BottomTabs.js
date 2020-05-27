@@ -1,7 +1,6 @@
 import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 
-import Header from './Header';
 import HomeScreen from './HomeScreen';
 import Profile from './Profile';
 
