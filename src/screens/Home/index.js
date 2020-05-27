@@ -26,9 +26,9 @@ const StackNavigator = () => {
         options={{headerTitle: 'Home'}}
       />
       <Stack.Screen
-        name="Profile"
+        name="User"
         component={Profile}
-        options={{headerTitle: 'Profile'}}
+        options={{headerTitle: 'User'}}
       />
     </Stack.Navigator>
   );

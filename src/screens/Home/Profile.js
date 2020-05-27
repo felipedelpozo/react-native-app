@@ -27,7 +27,10 @@ const styles = StyleSheet.create({
 
 const Profile = ({photoURL, ...data}) => {
   const {user} = useApp();
-  // const isCurrent = user.uid === data.uid;
+
+  const isCurrent = user.uid === data.uid;
+
+  console.log({isCurrent});
 
   return (
     <ScrollView>
@@ -40,10 +43,12 @@ const Profile = ({photoURL, ...data}) => {
   );
 };
 
-const RootNavigator = () => {
+const RootNavigator = ({route}) => {
   return (
     <Stack.Navigator headerMode="none">
-      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Profile">
+        {(props) => <Profile {...{...props, ...route.params}} />}
+      </Stack.Screen>
     </Stack.Navigator>
   );
 };

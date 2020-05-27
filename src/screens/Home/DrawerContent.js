@@ -36,17 +36,6 @@ const DrawerContent = (props) => {
         <Drawer.Section style={styles.drawerSection}>
           <DrawerItem
             icon={({color, size}) => (
-              <MaterialCommunityIcons
-                name="account-outline"
-                color={color}
-                size={size}
-              />
-            )}
-            label="Profile"
-            onPress={() => {}}
-          />
-          <DrawerItem
-            icon={({color, size}) => (
               <MaterialCommunityIcons name="logout" color={color} size={size} />
             )}
             label="Logout"

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
+import {ScrollView, View, StyleSheet} from 'react-native';
 import {Avatar, Text, List} from 'react-native-paper';
 
 import {getRelativeTime} from '~/helpers';
@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-start',
+    paddingTop: 15,
   },
   listItem: {
     width: '100%',
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Profile = ({displayName, photoURL, signInAt}) => (
+const Profile = ({navigation, displayName, photoURL, signInAt}) => (
   <>
     <List.Item
       title={displayName}
@@ -27,12 +28,14 @@ const Profile = ({displayName, photoURL, signInAt}) => (
       left={(props) => <Avatar.Image {...props} source={{uri: photoURL}} />}
       right={(props) => <List.Icon {...props} icon="chevron-right" />}
       style={styles.listItem}
-      onPress={() => console.log({displayName, photoURL})}
+      onPress={() =>
+        navigation.navigate('User', {displayName, photoURL, signInAt})
+      }
     />
   </>
 );
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const {users} = useApp();
 
   if (!users) {
@@ -41,7 +44,9 @@ const HomeScreen = () => {
 
   return (
     <ScrollView>
-      {users && users.map((user) => <Profile {...user} />)}
+      <View style={styles.container}>
+        {users && users.map((user) => <Profile {...{navigation, ...user}} />)}
+      </View>
     </ScrollView>
   );
 };

@@ -19,6 +19,7 @@ const Header = ({scene, previous, navigation}) => {
   });
 
   const {options} = scene.descriptor;
+
   const title =
     options.headerTitle !== undefined
       ? options.headerTitle
@@ -30,7 +31,7 @@ const Header = ({scene, previous, navigation}) => {
     <Appbar.Header theme={{colors: {primary: theme.colors.surface}}}>
       {previous ? (
         <Appbar.BackAction
-          onPress={navigation.pop}
+          onPress={() => navigation.pop()}
           color={theme.colors.primary}
         />
       ) : (

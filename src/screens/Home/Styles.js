@@ -15,20 +15,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 14,
   },
-  row: {
-    marginTop: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  section: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginRight: 15,
-  },
-  paragraph: {
-    fontWeight: 'bold',
-    marginRight: 3,
-  },
   drawerSection: {
     marginTop: 15,
   },
