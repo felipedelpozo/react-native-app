@@ -12,7 +12,6 @@ const Provider = ({children}) => {
   const [users, setUsers] = useState([]);
 
   const colorScheme = useColorScheme();
-
   const [theme, setTheme] = useState(colorScheme === 'dark' ? 'dark' : 'light');
 
   useEffect(() => {
@@ -64,6 +63,10 @@ const Provider = ({children}) => {
     return () => subscriber();
   }, [initializing, isSignedIn]);
 
+  const toggleTheme = () => {
+    setTheme((last) => (last === 'dark' ? 'light' : 'dark'));
+  };
+
   return (
     <Context.Provider
       value={{
@@ -72,7 +75,7 @@ const Provider = ({children}) => {
         initializing,
         isSignedIn,
         theme,
-        setTheme,
+        toggleTheme,
       }}>
       {children}
     </Context.Provider>

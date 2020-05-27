@@ -3,13 +3,14 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import DrawerContent from './DrawerContent';
+import Profile from './Profile';
 import Header from './Header';
-import HomeScreen from './HomeScreen';
+import BottomTabs from './BottomTabs';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
-const HomeStack = () => {
+const StackNavigator = () => {
   return (
     <Stack.Navigator
       initialRouteName="FeedList"
@@ -21,8 +22,13 @@ const HomeStack = () => {
       }}>
       <Stack.Screen
         name="Home"
-        component={HomeScreen}
+        component={BottomTabs}
         options={{headerTitle: 'Home'}}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{headerTitle: 'Profile'}}
       />
     </Stack.Navigator>
   );
@@ -31,7 +37,7 @@ const HomeStack = () => {
 const RootNavigator = () => {
   return (
     <Drawer.Navigator drawerContent={() => <DrawerContent />}>
-      <Drawer.Screen name="Home" component={HomeStack} />
+      <Drawer.Screen name="Home" component={StackNavigator} />
     </Drawer.Navigator>
   );
 };

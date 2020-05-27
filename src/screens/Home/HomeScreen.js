@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {Avatar, Card, IconButton, Divider} from 'react-native-paper';
+import {ScrollView, StyleSheet} from 'react-native';
+import {Avatar, Text, List} from 'react-native-paper';
 
 import {getRelativeTime} from '~/helpers';
 import {useApp} from '~/store';
@@ -11,6 +11,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
+  listItem: {
+    width: '100%',
+  },
   relativeTime: {
     fontSize: 8,
   },
@@ -18,27 +21,28 @@ const styles = StyleSheet.create({
 
 const Profile = ({displayName, photoURL, signInAt}) => (
   <>
-    <Card.Title
+    <List.Item
       title={displayName}
-      subtitle={getRelativeTime(signInAt)}
+      description={signInAt && getRelativeTime(signInAt.toDate())}
       left={(props) => <Avatar.Image {...props} source={{uri: photoURL}} />}
-      right={(props) => (
-        <IconButton {...props} icon="more-vert" onPress={() => {}} />
-      )}
+      right={(props) => <List.Icon {...props} icon="chevron-right" />}
+      style={styles.listItem}
+      onPress={() => console.log({displayName, photoURL})}
     />
-    <Divider />
   </>
 );
 
 const HomeScreen = () => {
   const {users} = useApp();
 
-  console.log({users});
+  if (!users) {
+    return <Text>Espere</Text>;
+  }
 
   return (
-    <View style={styles.container}>
+    <ScrollView>
       {users && users.map((user) => <Profile {...user} />)}
-    </View>
+    </ScrollView>
   );
 };
 
