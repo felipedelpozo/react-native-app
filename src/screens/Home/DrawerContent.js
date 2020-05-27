@@ -1,17 +1,8 @@
 import React from 'react';
+import auth from '@react-native-firebase/auth';
 import {View} from 'react-native';
 import {DrawerItem, DrawerContentScrollView} from '@react-navigation/drawer';
-import {
-  useTheme,
-  Avatar,
-  Title,
-  Caption,
-  Paragraph,
-  Drawer,
-  Text,
-  TouchableRipple,
-  Switch,
-} from 'react-native-paper';
+import {Avatar, Title, Caption, Drawer} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {useApp} from '~/store';
@@ -55,14 +46,10 @@ const DrawerContent = (props) => {
           />
           <DrawerItem
             icon={({color, size}) => (
-              <MaterialCommunityIcons
-                name="bookmark-outline"
-                color={color}
-                size={size}
-              />
+              <MaterialCommunityIcons name="logout" color={color} size={size} />
             )}
-            label="Bookmarks"
-            onPress={() => {}}
+            label="Logout"
+            onPress={() => auth().signOut()}
           />
         </Drawer.Section>
       </View>
