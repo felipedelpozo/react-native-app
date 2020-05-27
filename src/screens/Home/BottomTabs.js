@@ -1,6 +1,7 @@
 import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 
+import Header from './Header';
 import HomeScreen from './HomeScreen';
 import Profile from './Profile';
 
@@ -11,6 +12,9 @@ const BottomTabs = () => {
     <Tab.Navigator
       initialRouteName="Home"
       shifting={true}
+      activeColor="#f0edf6"
+      inactiveColor="#3e2465"
+      barStyle={{backgroundColor: '#694fad'}}
       backBehavior="initialRoute">
       <Tab.Screen
         name="Home"
@@ -24,7 +28,6 @@ const BottomTabs = () => {
         name="Profile"
         component={Profile}
         options={{
-          headerTitle: 'Profile',
           tabBarIcon: 'account',
         }}
       />

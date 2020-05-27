@@ -53,7 +53,6 @@ const Description = ({isCurrent, description}) => {
   const [value, setValue] = useState(description);
 
   const submit = async () => {
-    console.log({uid: user.uid, value});
     await firestore()
       .collection('Users')
       .doc(user.uid)
