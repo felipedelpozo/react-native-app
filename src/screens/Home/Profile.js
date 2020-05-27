@@ -1,7 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View, ScrollView} from 'react-native';
+import firestore from '@react-native-firebase/firestore';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Title, Caption, Avatar} from 'react-native-paper';
+import {
+  Title,
+  Caption,
+  Text,
+  Avatar,
+  TextInput,
+  Button,
+} from 'react-native-paper';
 
 import {useApp} from '~store';
 
@@ -14,6 +22,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: 25,
   },
+  form: {
+    padding: 25,
+  },
   image: {
     flex: 1,
     resizeMode: 'cover',
@@ -21,24 +32,79 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   button: {
+    marginTop: 10,
     marginBottom: 40,
+  },
+  title: {
+    marginTop: 20,
+    fontWeight: 'bold',
+  },
+  caption: {
+    fontSize: 14,
+    lineHeight: 14,
+  },
+  textDescription: {
+    width: '100%',
   },
 });
 
-const Profile = ({photoURL, ...data}) => {
+const Description = ({isCurrent, description}) => {
+  const {user} = useApp();
+  const [value, setValue] = useState(description);
+
+  const submit = async () => {
+    console.log({uid: user.uid, value});
+    await firestore()
+      .collection('Users')
+      .doc(user.uid)
+      .update({description: value});
+  };
+
+  if (isCurrent) {
+    return (
+      <View style={styles.form}>
+        <TextInput
+          label="Description"
+          value={value}
+          onChangeText={(text) => setValue(text)}
+        />
+        <Button
+          style={styles.button}
+          disabled={description === value}
+          mode="contained"
+          onPress={() => submit()}>
+          Update
+        </Button>
+      </View>
+    );
+  }
+
+  return (
+    <View style={styles.form}>
+      <Caption>Description</Caption>
+      <Text style={styles.textDescription}>
+        {description || 'No description'}
+      </Text>
+    </View>
+  );
+};
+
+const Profile = ({userdata}) => {
   const {user} = useApp();
 
-  const isCurrent = user.uid === data.uid;
-
-  console.log({isCurrent});
+  const isCurrent = !userdata;
+  const {displayName, email, photoURL, description = ''} = isCurrent
+    ? user
+    : userdata;
 
   return (
     <ScrollView>
       <View style={styles.container}>
         <Avatar.Image source={{uri: photoURL}} />
-        <Title style={styles.title}>{user.displayName}</Title>
-        <Caption style={styles.caption}>{user.email}</Caption>
+        <Title style={styles.title}>{displayName}</Title>
+        <Caption style={styles.caption}>{email}</Caption>
       </View>
+      <Description isCurrent={isCurrent} description={description} />
     </ScrollView>
   );
 };

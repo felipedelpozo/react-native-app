@@ -20,17 +20,19 @@ const styles = StyleSheet.create({
   },
 });
 
-const Profile = ({navigation, displayName, photoURL, signInAt}) => (
+const Profile = ({navigation, ...userdata}) => (
   <>
     <List.Item
-      title={displayName}
-      description={signInAt && getRelativeTime(signInAt.toDate())}
-      left={(props) => <Avatar.Image {...props} source={{uri: photoURL}} />}
+      title={userdata.displayName}
+      description={
+        userdata.signInAt && getRelativeTime(userdata.signInAt.toDate())
+      }
+      left={(props) => (
+        <Avatar.Image {...props} source={{uri: userdata.photoURL}} />
+      )}
       right={(props) => <List.Icon {...props} icon="chevron-right" />}
       style={styles.listItem}
-      onPress={() =>
-        navigation.navigate('User', {displayName, photoURL, signInAt})
-      }
+      onPress={() => navigation.navigate('User', {userdata})}
     />
   </>
 );
